@@ -47,7 +47,7 @@
                 </div>
 
                 <dl class="stat trend-container highest-container">
-                    <dt class="example-subtitle">Highest stock price 960.65 USD</dt>
+                    <dt class="example-subtitle">Highest stock price</dt>
                     <dd class="highest"></dd>
                     <dd class="sparkline highest-sparkline"></dd>
                 </dl>
