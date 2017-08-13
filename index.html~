@@ -17,7 +17,7 @@
 
     <!-- Custom styles for this template -->
     <link href="css/half-slider.css" rel="stylesheet">
-    <link href="./css/mycss.css" rel="stylesheet"> 
+    <link href="./dashboard/css/mycss.css" rel="stylesheet"> 
 </head>
 <body>
 	<nav class="navbar navbar-inverse navbar-fixed-top">

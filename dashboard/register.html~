@@ -5,6 +5,7 @@
         <title>The New York Stock Exchange | NYSE</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="favicon.ico">
 		<link rel="stylesheet" href="css/bootstrap.min.css" />
 		<link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
         <link rel="stylesheet" href="css/matrix-login.css" />
@@ -33,7 +34,7 @@
                 </div>
                 <div class="form-actions">
                     <span class="pull-left">Already have an account? <a href="./login.html" class="flip-link btn btn-info" id="to-recover">Login</a></span>
-                    <span class="pull-right"><a type="submit" href="index.html" class="btn" /> Register</a></span>
+                    <span class="pull-right"><a type="submit" href="index.html" class="btn btn-success" /> Register</a></span>
                 </div>
             </form>
         </div>
