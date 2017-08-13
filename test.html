@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="favicon.ico">
+	<title>AccountLogin</title>
+	<!-- Bootstrap core CSS -->
+    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="bootstrap/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet"> 
+</head>
+<body>
+
+<ul class="nav-mobile">
+	<li class="nav-mobile-left"><a href="#"><i class="logo logo-white-xs"></i></a></li>
+	<li class="nav-mobile-right"><a id="flyout-toggle" href="#"><i class="sprite sprite-menu-nav"></i></a></li>
+</ul>
+<ul class="nav nav-flyout">
+			<li><a>&nbsp;</a></li>	
+</ul>
+	<div class="container-fluid">
+
+		<!--  EK MDS  -->
+		<div style="margin-top: 2em;">
+			<div class="row">
+	<div class="l-main true-grid-12">
+		<div>
+
+			<header class="page-header">
+				<div class="page-header-parent">
+					
+				</div>
+				<h1>
+					<span>User Login</span>
+				</h1>
+
+			</header>
+
+		</div>
+		<div class="row">
+			<div class="true-grid-12">
+				
+				
+
+				
+				
+
+
+
+
+	
+
+
+				
+			</div>
+
+			<div class="true-grid-5" id="loginSection">
+				<form id="loginRegisterForm" action="login.do?destination=https%3A%2F%2Fdashboard.theice.com%2Fdata%2Fcd%2F" method="post" class="form form-horizontal form-no-uppercase">
+
+					<section class="stacked-section">
+						<h2 class="section-header text-right">
+							<span class="is-case-sensitive">New User? <a id="createAccountLink"  href="register.do?destination=https%3A%2F%2Fdashboard.theice.com%2Fdata%2Fcd%2F">Register</a></span>
+						</h2>
+						<br>
+						 
+						
+						
+							<div class="form-group ">
+								<label class="true-grid-2" for="j_username">Email Address</label>
+								<div class="true-grid-3">
+									<input type="text" class="form-control" id="j_username" name="j_username" value="" maxlength="50" autofocus />
+								</div>
+							</div>
+						
+						
+							<div class="form-group ">
+								<label class="true-grid-2" for="j_password">Password</label>
+								<div class="true-grid-3">
+									<input type="password" class="form-control" id="j_password" name="j_password"  maxlength="50" />
+								</div>
+							</div>
+						
+
+						<ul class="actionlist">
+
+							<li><a href="forgotPassword.do?destination=https%3A%2F%2Fdashboard.theice.com%2Fdata%2Fcd%2F"> Forgot Password</a></li>
+							<li><input id="loginButton" type="submit" value="Login" class="btn btn-primary" /></li>
+
+						</ul>
+						<noscript>Please enable javascript in your browser</noscript>
+					</section>
+				</form>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+    <script>
+		$(function() {
+			$( "#loginRegisterForm" ).submit(function( event ) {
+				$( 'input [type="submit"]' ).prop('disabled', true);
+			});
+		});
+	</script>
+
+	
+		
+		<img src="https://www.nyxdata.com/nysedata?ctl=Logoff" style="border:0px;" width="1" height="1"/>
+		</div>
+		<!--  /EK MDS  -->
+	</div>
+
+	<script src="https://static.theice.com/trade-gothic/1.0.0/mtiFontTrackingCode.js"></script>
+
+	<script>
+		(function(i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r;
+			i[r] = i[r] || function() {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date();
+			a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+			a.async = 1;
+			a.src = g;
+			m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+		ga('create', 'UA-85644457-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="favicon.ico">
+	<title>The New York Stock Exchange | NYSE</title>
+	<!-- Bootstrap core CSS -->
+    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+	
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="bootstrap/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">  
+    <!-- Custom styles for this template -->
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/half-slider.css" rel="stylesheet"> 
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#"><img src="./logo.svg" alt="The New York Stock Exchange" height="50px" width="50px"></a>
+          <a href="#theice">ICE</a>
+          <a href="#nyse">NYSE</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a href="./login.html">Login</a> | <a href="./register.html">Register</a>
+        </div>
+        <div id="navbar">
+            <form class="navbar-form" role="search">
+		        <div class="input-group">
+		            <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+		            <a href="#" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-search"></span> Search </a>
+		        </div>
+        	</form>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+	<header>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <!-- Slide One - Set the background image for this slide in the line below -->
+                <div class="carousel-item active" style="background-image: url('./slide1.jpg')">
+                    <div class="carousel-caption d-none d-md-block">
+                        <!-- <h3>First Slide</h3>
+                        <p>This is a description for the first slide.</p> -->
+                    </div>
+                </div>
+                <!-- Slide Two - Set the background image for this slide in the line below -->
+                <div class="carousel-item" style="background-image: url('./slide2.jpg')">
+                    <div class="carousel-caption d-none d-md-block">
+                        <!-- <h3>Second Slide</h3>
+                        <p>This is a description for the second slide.</p> -->
+                    </div>
+                </div>
+                <!-- Slide Three - Set the background image for this slide in the line below -->
+                <div class="carousel-item" style="background-image: url('./slide3.jpg')">
+                    <div class="carousel-caption d-none d-md-block">
+                        <!-- <h3>Third Slide</h3>
+                        <p>This is a description for the third slide.</p> -->
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <section class="py-5">
+        <div class="container">
+            <h2>Market Data</h2>
+            <table class="table table-hover">
+			    <thead>
+			      <tr>
+			        <th>DESCRIPTION</th>
+			        <th>VOLUME</th>
+			        <th>LAST</th>
+			        <th>CHANGE(%)</th>
+			      </tr>
+			    </thead>
+			    <tbody>
+			      <tr>
+			        <td>PENNY J C INC</td>
+			        <td>116,459,...</td>
+			        <td>3.93</td>
+			        <td style="color:#f43602">-0.78(-16.56%)</td>
+			      </tr>
+			      <tr>
+			        <td>SNAP INC</td>
+			        <td>83,853,...</td>
+			        <td>11.83</td>
+			        <td style="color:#f43602">-1.94(-14.09)</td>
+			      </tr>
+			      <tr>
+			      <tr>
+			        <td>FORD MTR CO DEL</td>
+			        <td>32,300,1,...</td>
+			        <td>10.77</td>
+			        <td>0.00(+0.00)</td>
+			      </tr>
+			      <tr>
+			        <td>BANK AMER CORP</td>
+			        <td>65,157,4,...</td>
+			        <td>23.86</td>
+			        <td style="color:#f43602">-0.26(-1.08%)</td>
+			      </tr>
+			      <tr>
+			        <td>ALIBABA GROUP HLD...</td>
+			        <td>22,327,4,...</td>
+			        <td>151.70</td>
+			        <td style="color:#f43602">-0.07(-0.05%)</td>
+			      </tr>
+			      <tr>
+			        <td>COMMUNITY HEALTH S...</td>
+			        <td>29,129,1,...</td>
+			        <td>7.45</td>
+			        <td style="color:#12e555">+1.38(+22.73%)</td>
+			      </tr>
+			    </tbody>
+			  </table>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; NYSE 2017</p>
+        </div>
+        <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	
+	
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="bootstrap/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>
