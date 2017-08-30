@@ -1,0 +1,148 @@
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
+
+CREATE SCHEMA IF NOT EXISTS `nyse1` DEFAULT CHARACTER SET latin1 ;
+CREATE SCHEMA IF NOT EXISTS `db1` DEFAULT CHARACTER SET latin1 ;
+CREATE SCHEMA IF NOT EXISTS `nyse` ;
+USE `nyse1` ;
+
+-- -----------------------------------------------------
+-- Table `nyse1`.`gics`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `nyse1`.`gics` ;
+
+CREATE  TABLE IF NOT EXISTS `nyse1`.`gics` (
+  `gics_sub_industry` VARCHAR(50) NOT NULL ,
+  `gics_sector` VARCHAR(40) NOT NULL ,
+  PRIMARY KEY (`gics_sub_industry`) )
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `nyse1`.`securities`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `nyse1`.`securities` ;
+
+CREATE  TABLE IF NOT EXISTS `nyse1`.`securities` (
+  `security` VARCHAR(40) NOT NULL ,
+  `ticker_symbol1` VARCHAR(5) NOT NULL ,
+  `gics_sub_industry` VARCHAR(50) NOT NULL ,
+  PRIMARY KEY (`security`, `ticker_symbol1`) ,
+  INDEX `gics_sub_industry` (`gics_sub_industry` ASC) ,
+  INDEX `some_id` (`ticker_symbol1` ASC) ,
+  CONSTRAINT `securities_ibfk_1`
+    FOREIGN KEY (`gics_sub_industry` )
+    REFERENCES `nyse1`.`gics` (`gics_sub_industry` ))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `nyse1`.`fundamentals`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `nyse1`.`fundamentals` ;
+
+CREATE  TABLE IF NOT EXISTS `nyse1`.`fundamentals` (
+  `ticker_symbol` VARCHAR(5) NOT NULL DEFAULT '' ,
+  `period_ending` DATE NOT NULL DEFAULT '0000-00-00' ,
+  `total_liablities_and_equity` FLOAT NOT NULL ,
+  `total_revenue` FLOAT NOT NULL ,
+  `earnings_per_share` DECIMAL(4,2) NOT NULL ,
+  PRIMARY KEY (`ticker_symbol`, `period_ending`) ,
+  CONSTRAINT `fundamentals_ibfk_1`
+    FOREIGN KEY (`ticker_symbol` )
+    REFERENCES `nyse1`.`securities` (`ticker_symbol1` ))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `nyse1`.`lookup`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `nyse1`.`lookup` ;
+
+CREATE  TABLE IF NOT EXISTS `nyse1`.`lookup` (
+  `gics_sector` VARCHAR(40) NOT NULL ,
+  PRIMARY KEY (`gics_sector`) )
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+USE `db1` ;
+
+-- -----------------------------------------------------
+-- Table `db1`.`gics`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `db1`.`gics` ;
+
+CREATE  TABLE IF NOT EXISTS `db1`.`gics` (
+  `gics_sub_industry` VARCHAR(50) NOT NULL ,
+  `gics_sector` VARCHAR(40) NOT NULL ,
+  PRIMARY KEY (`gics_sub_industry`) )
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `db1`.`securities`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `db1`.`securities` ;
+
+CREATE  TABLE IF NOT EXISTS `db1`.`securities` (
+  `security` VARCHAR(40) NOT NULL ,
+  `ticker_symbol` VARCHAR(5) NOT NULL ,
+  `gics_sub_industry` VARCHAR(50) NOT NULL ,
+  PRIMARY KEY (`security`) ,
+  INDEX `some_id` (`ticker_symbol` ASC) ,
+  INDEX `fk_securities_gics1` (`gics_sub_industry` ASC) ,
+  CONSTRAINT `fk_securities_gics1`
+    FOREIGN KEY (`gics_sub_industry` )
+    REFERENCES `db1`.`gics` (`gics_sub_industry` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `db1`.`fundamentals`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `db1`.`fundamentals` ;
+
+CREATE  TABLE IF NOT EXISTS `db1`.`fundamentals` (
+  `ticker_symbol1` VARCHAR(5) NOT NULL DEFAULT '' ,
+  `period_ending` DATE NOT NULL DEFAULT '0000-00-00' ,
+  `total_liablities_and_equity` FLOAT NOT NULL ,
+  `total_revenue` FLOAT NOT NULL ,
+  `earnings_per_share` DECIMAL(4,2) NOT NULL ,
+  PRIMARY KEY (`ticker_symbol1`, `period_ending`) ,
+  CONSTRAINT `fundamentals_ibfk_1`
+    FOREIGN KEY (`ticker_symbol1` )
+    REFERENCES `db1`.`securities` (`ticker_symbol` ))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `db1`.`lookup`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `db1`.`lookup` ;
+
+CREATE  TABLE IF NOT EXISTS `db1`.`lookup` (
+  `lookup_id` INT(11) NOT NULL ,
+  `category` VARCHAR(45) NOT NULL ,
+  `key` VARCHAR(10) NOT NULL ,
+  `value` VARCHAR(45) NOT NULL ,
+  `hint` VARCHAR(200) NULL DEFAULT NULL ,
+  `active` CHAR(1) NOT NULL DEFAULT 'Y' ,
+  PRIMARY KEY (`lookup_id`) )
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+USE `nyse` ;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
